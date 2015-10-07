@@ -8,6 +8,7 @@ var env = require('node-env-file');
 env(__dirname + '/deploy.env');
 console.log(process.env.BUCKET_NAME);
 
+
 var BUCKET_NAME = process.env.BUCKET_NAME
 
 var aws = require('aws-sdk');
@@ -27,6 +28,7 @@ function noParamsGiven() {
 function downloadArtifacts(){
  var ghdownload = require('github-download')
   // , child_process = require('child_process')
+  process.chdir('/tmp');
 
 
   ghdownload({user: 'dissonanz', repo: 'undum', ref: '56c080c984b5a4c4eb2ab4e96ddf359c14f9a5b1'}, '/tmp/download')
